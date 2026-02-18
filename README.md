@@ -1,48 +1,44 @@
-📝 C-Wordle Game (CLI Based)
-Bu proje, popüler Wordle kelime oyununun C dili kullanılarak terminal üzerinden oynanabilen bir versiyonudur. YTÜ Bilgisayar Mühendisliği dersi kapsamında geliştirilmiştir.
+# 🚀 Wordle-CLI Projesi
 
-🚀 Özellikler
-Dinamik Geri Bildirim: Tahmin edilen harflerin hedef kelimede olup olmadığını ve yerlerinin doğruluğunu anlık olarak gösterir.
+Bu proje, popüler kelime tahmin oyununun **C dili** ile geliştirilmiş, komut satırı tabanlı (CLI) bir versiyonudur. Proje, modüler programlama prensiplerine uygun olarak `.h` ve `.c` dosyalarına bölünmüş yapıdadır.
 
-Harf Takibi: Denenen harfleri "Yeri Yanlışlar" ve "Hiç Bulunmayanlar" olarak listeler; her harfi sadece bir kez göstererek ekran kalabalığını önler.
+## 👤 Geliştirici Bilgileri
+* **Ad Soyad:** [Adını Buraya Yaz]
+* **Öğrenci Numarası:** [Numaranı Buraya Yaz]
+* **Bölüm:** YTÜ Bilgisayar Mühendisliği
+* **Ekip:** YTÜ Roket Kulübü Yazılım Ekibi
 
-Akıllı Harf Kontrolü: "ADANA - ALTAN" gibi çift harf içeren senaryolarda doğru eşleşme mantığını uygular.
 
-Hata Yönetimi: Geçersiz uzunluktaki (5 harf olmayan) girişleri tespit eder ve hakkınızdan düşmez.
 
-Güvenli Giriş: Bellek taşmalarını (Buffer Overflow) önlemek için kısıtlı giriş ve tampon temizliği (Buffer Cleaning) kullanır.
+## 🛠️ Teknik Altyapı
+Proje geliştirilirken aşağıdaki teknik detaylar üzerinde durulmuştur:
 
-🛠️ Kurulum ve Çalıştırma
-Projenin bilgisayarınızda derlenebilmesi için GCC derleyicisinin yüklü olması gerekmektedir.
+| Özellik | Açıklama |
+| :--- | :--- |
+| **Bellek Yönetimi** | String sonu işaretleri (`\0`) ile bellek taşmaları (buffer overflow) önlenmiştir. |
+| **Giriş Temizliği** | `scanf` ve `fgets` sonrası buffer temizliği yapılarak "Enter" tuşu hataları giderilmiştir. |
+| **Harf Algoritması** | "ALTIN - ALTAN" senaryosu gibi karmaşık harf eşleşmeleri hatasız çalışmaktadır. |
+| **Tekrarsız Liste** | `strchr` ile denenen harfler listelerde sadece bir kez gösterilir. |
 
-Terminali Açın: Proje dosyalarının (main.c, functions.c, header.h) bulunduğu klasöre gidin.
 
-Derleyin:
 
-Bash
-gcc main.c functions.c -o wordle
-Çalıştırın:
+## 🕹️ Kurulum ve Derleme
+Bilgisayarınızda **GCC** derleyicisi kurulu olmalıdır. Terminal üzerinden aşağıdaki komutlarla projeyi ayağa kaldırabilirsiniz:
 
-Bash
-./wordle
-(Windows için .\wordle)
+1. **Derleme:**
+   ```powershell
+   gcc main.c functions.c -o wordle
+Çalıştırma:
 
-🎮 Nasıl Oynanır?
-Menüden 1 tuşuna basarak oyunu başlatın.
+PowerShell
+.\wordle
+🎮 Oyun Mantığı
+Kullanıcıya toplam 6 tahmin hakkı verilir.
 
-5 harfli bir kelime tahmini yapın.
+Tahminler 5 harf uzunluğunda olmalıdır.
 
-Son Durum: Harf doğru yerdeyse yerinde görünür (Örn: A__A_).
+Yeşil: Harf doğru yerde.
 
-Yeri Yanlışlar: Harf kelimede var ama yeri yanlışsa bu listede görünür.
+Sarı: Harf kelimede var ama yeri yanlış.
 
-Hiç Bulunmayanlar: Kelimede hiç olmayan harfler burada listelenir.
-
-Toplam 6 hak içinde kelimeyi bulmaya çalışın!
-
-💻 Teknik Detaylar
-Diller: C
-
-Bellek Yönetimi: Karakter dizileri için Null Terminator (\0) kullanımı ile bellek güvenliği sağlanmıştır.
-
-Kütüphaneler: stdio.h, string.h, ctype.h, stdlib.h.
+Gri: Harf kelimede bulunmuyor.
