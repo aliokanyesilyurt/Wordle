@@ -1,4 +1,5 @@
-#include "functions.h" // Funcitons.h eklendi.
+#include "functions.h"
+
 // Fonksiyon sayısı fazla olmadığı için fonksiyonlar birbirinden ayrılmadı.
 
 void menu(){ // Menü yazdırma fonksiyonu.
@@ -33,16 +34,35 @@ void kontrol(char *tahmin, const char *kelime, char *sondurum, char *yeriyanlis,
             }
                 int uz;
                 if(geldi == 1){
+                    if (strchr(yeriyanlis, tahmin[i]) == NULL) { // Daha önce yanlış yazılmış mı kontrol ediyor.
                     uz=strlen(yeriyanlis); // Dizi uzunluğunu ölçtü.
                     yeriyanlis[uz] = tahmin[i]; // Mesela ilk kelime yazılırken 0'dı o yüzden 0'a ilk yeri yanlış harfi yerleştirdi.
                     yeriyanlis[uz + 1] = '\0';
+                    }
                 }else{
-                    uz=strlen(tamyanlis); // Yeri yanlışın tam yanlış harfler versiyonu.
+                    if (strchr(tamyanlis, tahmin[i]) == NULL) { // Yeri yanlışın tam yanlış harfler versiyonu.
+                    uz=strlen(tamyanlis); 
                     tamyanlis[uz] = tahmin[i];
                     tamyanlis[uz + 1] = '\0';
+                    }
                 }
         }
     }
+}
+
+int kazanmadurumu(int kazanmadurum, const char *kelime, char *tahmin, int denemesayisi){
+    if(strcmp(kelime,tahmin)==0){
+        kazanmadurum=1;
+    }else{
+        kazanmadurum=0; 
+    }
+    if(kazanmadurum==1){
+        printf(">>> KAZANDINIZ!!! <<<\n");
+        printf("Kelimeyi %d denemede dogru tahmin ettiniz!\n",denemesayisi+1);
+        printf(">>> TEBRIKLER <<<\n");
+        printf("-----------------------\n");
+    }
+    return kazanmadurum;
 }
 
 void durumyazdir(char *tahmin, const char *kelime, char *sondurum, char *yeriyanlis, char *tamyanlis){
