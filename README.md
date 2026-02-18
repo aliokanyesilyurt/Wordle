@@ -1,43 +1,30 @@
-# 🚀 Wordle-CLI Projesi
+# 📝 Wordle Projesi - C Terminal Oyunu
 
-Bu proje, popüler kelime tahmin oyununun **C dili** ile geliştirilmiş, komut satırı tabanlı (CLI) bir versiyonudur. Proje, modüler programlama prensiplerine uygun olarak `.h` ve `.c` dosyalarına bölünmüş yapıdadır.
+Bu proje, C dili kullanılarak geliştirilmiş bir terminal tabanlı Wordle oyunudur. Kullanıcıdan alınan tahminleri analiz eder ve harflerin doğruluk durumuna göre geri bildirim verir.
 
-## 👤 Geliştirici Bilgileri
-* **Ad Soyad:** Ali Okan YEŞİLYURT
-* **Öğrenci Numarası:** 25011067
-* **Bölüm:** Bilgisayar Mühendisliği
+## 🚀 Öne Çıkan Özellikler
 
+* **Genişletilmiş Kelime Havuzu**: Oyun her başladığında önceden tanımlanmış kelime havuzundan rastgele bir kelime seçer.
+* **Anlık Geri Bildirim**: Harflerin doğru yerde (Yeşil), yanlış yerde (Sarı) veya kelimede yok (Gri) olma durumlarını takip eder.
+* **Hata Denetimi**: Kullanıcının girdiği kelime uzunluğunu ve karakter tipini kontrol eder.
 
+## 📂 Dosya Yapısı
 
-## 🛠️ Teknik Altyapı
-Proje geliştirilirken aşağıdaki teknik detaylar üzerinde durulmuştur:
+* `main.c`: Oyunun ana döngüsünü, kelime havuzu seçimini ve kullanıcı arayüzünü içerir.
+* `functions.c` / `header.h`: Harf kontrol algoritmalarını ve yardımcı fonksiyonları barındırır.
 
-| Özellik | Açıklama |
-| :--- | :--- |
-| **Bellek Yönetimi** | String sonu işaretleri (`\0`) ile bellek taşmaları (buffer overflow) önlenmiştir. |
-| **Giriş Temizliği** | `scanf` ve `fgets` sonrası buffer temizliği yapılarak "Enter" tuşu hataları giderilmiştir. |
-| **Harf Algoritması** | "ALTIN - ALTAN" senaryosu gibi karmaşık harf eşleşmeleri hatasız çalışmaktadır. |
-| **Tekrarsız Liste** | `strchr` ile denenen harfler listelerde sadece bir kez gösterilir. |
+## 🛠️ Derleme ve Çalıştırma
 
+Proje, PowerShell veya CMD üzerinden **GCC** derleyicisi kullanılarak çalıştırılabilir.
 
+### Derleme:
+```powershell
+gcc main.c functions.c -o wordle.exe
+(Eğer dosyaları tek bir main.c içinde birleştirdiyseniz sadece gcc main.c -o wordle.exe yazmanız yeterlidir.)
 
-## 🕹️ Kurulum ve Derleme
-Bilgisayarınızda **GCC** derleyicisi kurulu olmalıdır. Terminal üzerinden aşağıdaki komutlarla projeyi ayağa kaldırabilirsiniz:
-
-1. **Derleme:**
-   ```powershell
-   gcc main.c functions.c -o wordle
 Çalıştırma:
-
 PowerShell
-.\wordle
-🎮 Oyun Mantığı
-Kullanıcıya toplam 6 tahmin hakkı verilir.
+.\wordle.exe
 
-Tahminler 5 harf uzunluğunda olmalıdır.
-
-Yeşil: Harf doğru yerde.
-
-Sarı: Harf kelimede var ama yeri yanlış.
-
-Gri: Harf kelimede bulunmuyor.
+🎓 Geliştirici Notları
+Derleme sırasında ObjectNotFound hatası alınıyorsa, gcc'nin sistem PATH değişkenlerine eklendiğinden emin olunmalıdır.
