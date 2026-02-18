@@ -1,6 +1,9 @@
 #include "header.h" // .h dosyaları eklendi.
 #include "functions.h"
 
+const char kelime[6]; // Global değişken tanımlandı.
+const char *havuz[]= {"ATLAS", "HAMZA", "GITAR", "CIZIM", "HALIC"};
+
 int main(){
     char tahmin[6]; // Her tahminde değişecek değişkenler tanımlandı.
     char tamyanlis[26]; // 5x5=25 +1 tane boşluk satırı tüm tahminlerdeki tüm harfler
@@ -10,7 +13,7 @@ int main(){
     int secim; // Menü seçimi.
     int kazanmadurum;
     int denemesayisi;
-
+    int indeks;
 
     while(1){
     menu();
@@ -24,6 +27,9 @@ int main(){
                 denemesayisi = 0;
                 kazanmadurum = 0; // Önce her şeyi sıfırlandı.
 
+                srand(time(NULL));
+                indeks=rand() % 5;
+                const char *kelime = havuz[indeks];
                 printf("> OYUN BASLIYOR...\n");
                 for(int i=0;i<MAX_DENEME;i++){
                     printf("Tahmininiz: ");
@@ -56,3 +62,4 @@ int main(){
     }
 }
 }
+
