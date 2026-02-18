@@ -2,6 +2,7 @@
 #include <stdlib.h> // Pause komutu için kullanacağım kütüphane.
 #include <string.h> // Kelime kontrolü için karakter dizisi kütüphanesi.
 #include <ctype.h> // Toupper yapmak için kullanacağım kütüphane.
+#include <time.h> // srand ve rand kullanmak için kullanacağım kütüphane.
 
 #define MAX_UZ 5 // Define tanımlamaları yapıldı.
 #define MAX_DENEME 6
