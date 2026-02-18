@@ -3,10 +3,9 @@
 Bu proje, popüler kelime tahmin oyununun **C dili** ile geliştirilmiş, komut satırı tabanlı (CLI) bir versiyonudur. Proje, modüler programlama prensiplerine uygun olarak `.h` ve `.c` dosyalarına bölünmüş yapıdadır.
 
 ## 👤 Geliştirici Bilgileri
-* **Ad Soyad:** [Adını Buraya Yaz]
-* **Öğrenci Numarası:** [Numaranı Buraya Yaz]
-* **Bölüm:** YTÜ Bilgisayar Mühendisliği
-* **Ekip:** YTÜ Roket Kulübü Yazılım Ekibi
+* **Ad Soyad:** Ali Okan YEŞİLYURT
+* **Öğrenci Numarası:** 25011067
+* **Bölüm:** Bilgisayar Mühendisliği
 
 
 
